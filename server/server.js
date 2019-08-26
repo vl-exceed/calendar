@@ -1,11 +1,15 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import UserConsroller from './src/constrollers/userConstroller';
+import DateController from './src/constrollers/dateController';
 
 const app = express();
  
 mongoose.connect('mongodb://localhost/calendar', {useNewUrlParser: true});
-bodyParser.json();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
     res.send('it works')
