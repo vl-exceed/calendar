@@ -1,4 +1,4 @@
-import Day from './src/models/dateModel';
+import Day from '../models/dateModel';
 
 class dateController {
 

@@ -1,12 +1,18 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-import UserConsroller from './src/constrollers/userConstroller';
-import DateController from './src/constrollers/dateController';
+import UserController from './src/routers/userRouter';
+import DateController from './src/routers/dateRouter';
 
 const app = express();
  
-mongoose.connect('mongodb://localhost/calendar', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/calendar', {
+    useNewUrlParser: true, 
+    useCreateIndex: true
+})
+.then(() => {
+    console.log('connected')
+});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
