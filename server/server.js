@@ -1,8 +1,10 @@
-import express from 'express';
+import express, { router } from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-import UserController from './src/controllers/userController';
-import DateController from './src/controllers/dateController';
+import cors from 'cors';
+
+import userController from './src/api/controllers/userController'
+const User = new userController();
 
 const app = express();
  
@@ -16,10 +18,10 @@ mongoose.connect('mongodb://localhost/calendar', {
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 
-app.get('/', (req, res) => {
-    res.send('it works')
-})
+app.post('/api/register', User.createUser)
+
 
 app.listen(3001, () => {
     console.log('SERVER LISTENING ON 3001')

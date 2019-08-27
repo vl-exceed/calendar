@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Route, Redirect } from 'react-router'
+import auth from '../../auth'
 
 class Register extends Component {
     constructor(props) {
@@ -8,19 +10,25 @@ class Register extends Component {
     }
 
     submit(e) {
+        const {_email, _login, _password} = this.refs
         e.preventDefault()
-        // api to express to create new user
-        // {_email.value, _login.value, _password.value}
+        auth.register(_email.value, _login.value, _password.value)
+        .then((data) => {
+            this.props.history.push("/login");
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     render() {
         return(
             <div className="register">
-                <form>
+                <form onSubmit={this.submit}>
                     <input ref="_email" type="text" placeholder="email" required/>
                     <input ref="_login" type="text" placeholder="login" required/>
                     <input ref="_password" type="password" placeholder="password" required/>
-                    <button type="submit" onSubmit={(e) => {this.submit(e)}}>Register</button>
+                    <button>Register</button>
                 </form>
                 
             </div>

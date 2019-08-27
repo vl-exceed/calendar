@@ -1,23 +1,33 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import auth from '../../auth'
 
 class Calendar extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            events : []
+            events : [],
+            loading : false
         }
     }
 
-    getEvents() {
-        // promise with api to get all events of user
+    static propTypes = {
+        events : PropTypes.array.isRequired
     }
+
+    // getEvents() {
+        
+    // }
 
     componentDidMount() {
-        const events = this.getEvents()
-        if (events.length !== 0) {
-           this.setState({ events }) 
-        }
+        this.setState({ loading: true })
+        fetch('https://localhost/calendar/events')
+            .then(response => response.json)
+            .then(json => json.map(event => event)
+            .then(events => 
+                this.setState({ events, loading: false })
+            )
+        ) 
     }
 
     render() {
