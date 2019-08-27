@@ -5,8 +5,7 @@ class userController {
     createUser() {
         const data = req.body
         const user = new User({
-            id: data.id,
-            username: data.username,
+            usernsame: data.username,
             password: data.password, 
             email: data.password
         })

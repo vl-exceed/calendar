@@ -1,8 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-import UserController from './src/routers/userRouter';
-import DateController from './src/routers/dateRouter';
+import UserController from './src/controllers/userController';
+import DateController from './src/controllers/dateController';
 
 const app = express();
  
