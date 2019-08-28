@@ -1,6 +1,9 @@
 import User from '../../models/userModel';
 
-class userController {
+class UserController {
+    findOne(args, cb) {
+        User.findOne(args, cb);
+    }
 
     createUser(req, res) {
         const data = req.body
@@ -22,4 +25,5 @@ class userController {
     }
 }
 
-export default userController;
+
+export default UserController;

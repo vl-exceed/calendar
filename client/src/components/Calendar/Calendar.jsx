@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import auth from '../../auth'
+import Auth from '../../auth'
 
 class Calendar extends Component {
     constructor(props) {
@@ -34,9 +34,7 @@ class Calendar extends Component {
         return(
             <div className="calendar">
                 <button onClick={() => {
-                    auth.logout(() => {
-                        this.props.history.push("/");
-                    });
+                    Auth.logout(() => {this.props.history.push("/")})
                 }}
             >Logout</button>
             </div>

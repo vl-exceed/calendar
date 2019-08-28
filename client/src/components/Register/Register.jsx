@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Route, Redirect } from 'react-router'
-import auth from '../../auth'
+import Auth from '../../auth'
+import { routes } from '../../clientConfig'
 
 class Register extends Component {
     constructor(props) {
@@ -12,13 +12,12 @@ class Register extends Component {
     submit(e) {
         const {_email, _login, _password} = this.refs
         e.preventDefault()
-        auth.register(_email.value, _login.value, _password.value)
-        .then((data) => {
-            this.props.history.push("/login");
-        })
-        .catch(err => {
-            console.log(err)
-        })
+        Auth.register(_email.value, _login.value, _password.value)
+            .then((data) => {
+                console.log(data)
+                this.props.history.push(`${routes.login}`)
+            }) 
+            .catch(error => {console.log(error)})
     }
 
     render() {
@@ -30,7 +29,6 @@ class Register extends Component {
                     <input ref="_password" type="password" placeholder="password" required/>
                     <button>Register</button>
                 </form>
-                
             </div>
         )
     }
