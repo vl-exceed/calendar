@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { routes } from '../../clientConfig'
+import './_home.less'
 
 class Home extends Component {
 

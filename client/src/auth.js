@@ -1,8 +1,8 @@
 import config from './clientConfig'
 
-class Auth {                      // class for connection with passport js and express expressions :)
+class Auth {
     constructor() {
-      this.authenticated = false; // just template
+      this.authenticated = true;
     }
   
     register(email, login, password) {
@@ -22,7 +22,6 @@ class Auth {                      // class for connection with passport js and e
     }
 
     login(login, password) {
-      console.log(login, password)
       return fetch(`${config.clientPath}${config.api.auth.login}`, {
         method: 'POST',
           headers: {
@@ -37,11 +36,6 @@ class Auth {                      // class for connection with passport js and e
       .then(response => response.json())
     }
 
-    // login(cb) {
-    //   this.authenticated = true;
-    //   cb();
-    // }
-  
     logout(cb) {
       this.authenticated = false;
       cb();

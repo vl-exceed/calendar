@@ -8,4 +8,8 @@ const userSchema = new mongoose.Schema({
   versionKey: false
 });
 
+userSchema.methods.validPassword = function(pass) {
+  return (this.password === pass);
+};
+
 export default userSchema;

@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.calendar{
+
+}
+
+.visible {
+    display: block;
+}
+
+.invisible {
+    display: none;
+}
+
+.header {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: grey;
+}
+
+.header>.label {
+    margin: auto 20px; 
+}
+
+.header>.drop-down-menu {
+    margin: auto 20px;
+}
+
+.header>.drop-down-menu>.visible {
+    position: absolute;
+}
+
+.main-board {
+    height: 1000px;
+    width: 1000px;
+    
+    background-color: red;
+}
+
+.header>.drop-down-menu>.menu-item {
+    width: 100px;
+    height: 40px;
+}

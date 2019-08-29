@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Auth from '../../auth'
+// import Auth from '../../auth'
+// import Header from './Header/Header'
+import DropDownMenu from '../DropDownMenu/DropDownMenu';
+import SidePanel from '../SidePanel/SidePanel';
+import MainBoard from '../MainBoard/MainBoard';
 
 class Calendar extends Component {
     constructor(props) {
@@ -14,10 +18,6 @@ class Calendar extends Component {
     static propTypes = {
         events : PropTypes.array.isRequired
     }
-
-    // getEvents() {
-        
-    // }
 
     componentDidMount() {
         this.setState({ loading: true })
@@ -33,10 +33,14 @@ class Calendar extends Component {
     render() {
         return(
             <div className="calendar">
-                <button onClick={() => {
-                    Auth.logout(() => {this.props.history.push("/")})
-                }}
-            >Logout</button>
+                {/* <Header /> maybe next time :( */}
+                <div className="header">
+                    <p className="label">YA CALENDAR</p>
+                    <DropDownMenu userName="$USERNAME" />
+                </div>
+                <MainBoard />
+                <SidePanel />
+                {/* <Footer /> */}
             </div>
         )
     }
