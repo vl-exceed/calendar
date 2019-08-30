@@ -20,8 +20,8 @@ class DatePicker extends React.Component {
         this.getDay = this.getDay.bind(this)
     }
 
-    getDay(day) {
-        
+    getDay(arg) {
+        return (arg == '') ? false : console.log(arg)
     }
 
     render() {
@@ -36,7 +36,7 @@ class DatePicker extends React.Component {
                 <div className="days-block">
                     {   
                         fields.map((day, i) => 
-                        <Day key={i} day={day} />)
+                        <Day key={i} day={day} getDay={this.getDay} />)
                     }
                 </div>
             </div>
