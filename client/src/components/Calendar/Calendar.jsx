@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-// import Auth from '../../auth'
-// import Header from './Header/Header'
-import DropDownMenu from '../DropDownMenu/DropDownMenu';
-import SidePanel from '../SidePanel/SidePanel';
-import MainBoard from '../MainBoard/MainBoard';
+import Header from '../Header/Header'
+import MainBoard from '../MainBoard/MainBoard'
+
+// import SidePanel from '../SidePanel/SidePanel';
+// import MainPanel from '../MainPanel/MainPanel';
+
 
 class Calendar extends Component {
     constructor(props) {
@@ -33,13 +34,8 @@ class Calendar extends Component {
     render() {
         return(
             <div className="calendar">
-                {/* <Header /> maybe next time :( */}
-                <div className="header">
-                    <p className="label">YA CALENDAR</p>
-                    <DropDownMenu userName="$USERNAME" />
-                </div>
+                <Header />
                 <MainBoard />
-                <SidePanel />
                 {/* <Footer /> */}
             </div>
         )

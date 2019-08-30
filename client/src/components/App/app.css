@@ -3,10 +3,6 @@
     padding: 0;
 }
 
-.calendar{
-
-}
-
 .visible {
     display: block;
 }
@@ -23,26 +19,87 @@
     background-color: grey;
 }
 
-.header>.label {
-    margin: auto 20px; 
+.label {
+    margin: auto 0; 
 }
 
-.header>.drop-down-menu {
-    margin: auto 20px;
+/* .drop-down-menu {
+    display: flex;
+    flex-flow: column;
+} */
+
+.user-block {
+    height: 40px;
+    display: flex;
 }
 
-.header>.drop-down-menu>.visible {
+.user-name {
+    margin: auto;
+}
+
+.menu-item {
+    background-color: blue;
+    height: 40px;
+}
+
+.menu-items {
+    z-index: 1;
     position: absolute;
 }
 
 .main-board {
-    height: 1000px;
-    width: 1000px;
-    
-    background-color: red;
+    display: flex;
 }
 
-.header>.drop-down-menu>.menu-item {
-    width: 100px;
-    height: 40px;
+.main-panel {
+    height: 1000px;
+    width: 70%;
+    background-color: red;
+    display: flex;
+    flex-flow: column;
+}
+
+.week-day-names {
+    display: flex;
+}
+
+.date-picker {
+    display: flex;
+    flex-flow: column;
+}
+
+
+.main-block {
+    margin: 0 auto;
+    height: 1000px;
+    width: 700px;
+    background-color: yellow;
+}
+
+.side-panel {
+    height: 1000px;
+    width: 30%;
+    background-color: green;
+}
+
+.week-day-short {
+    width: 30px;
+    height: 30px;
+    background-color: orange;
+}
+
+.days-block {
+    display: flex;
+    flex-wrap: wrap;
+    width: 210px;
+}
+
+.day {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    /* border: 1px solid black; */
+}
+.day:hover {
+    background-color: aqua;
 }

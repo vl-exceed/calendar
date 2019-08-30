@@ -1,5 +1,5 @@
 import React from 'react'
-import Auth from '../../auth';
+
 import MenuItem from '../MenuItem/MenuItem'
 
 class DropDownMenu extends React.Component {
@@ -11,6 +11,7 @@ class DropDownMenu extends React.Component {
         }
 
         this.openHandler = this.openHandler.bind(this)
+
     }
 
     openHandler() {
@@ -18,11 +19,17 @@ class DropDownMenu extends React.Component {
     }
 
     render() {
-        const {userName, name} = this.props
+        const {userName /*, name */} = this.props
         return(
-            <div className="drop-down-menu" >
-                <p onClick={this.openHandler}>{userName}</p>
-                <MenuItem name="logout" onClick={Auth.logout(() => {console.log('logout pressed')})} status={this.state.isOpen} />
+            <div className="drop-down-menu">
+                <div className="user-block" onClick={this.openHandler}>
+                    <p className="user-name">{userName}</p>
+                </div>
+                <div className="menu-items">
+                    <MenuItem name="logout" status={this.state.isOpen} />
+                    <MenuItem name="logout" status={this.state.isOpen} />
+                    <MenuItem name="logout" status={this.state.isOpen} />
+                </div>
             </div>
         )
     }

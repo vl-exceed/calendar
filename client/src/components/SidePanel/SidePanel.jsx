@@ -1,12 +1,12 @@
 import React from 'react';
+import DatePicker from '../DatePicker/DatePicker'
 
 class SidePanel extends React.Component {
 
     render() {
-        //const {VARIABLE} = this.props
         return (
             <div className="side-panel">
-
+                <DatePicker />
             </div>
         )
     }

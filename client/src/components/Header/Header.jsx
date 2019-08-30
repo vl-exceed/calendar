@@ -1,16 +1,13 @@
 import React from 'react'
-import UserAccountSet from '../UserAccountSet'
+import DropDownMenu from '../DropDownMenu/DropDownMenu';
 
 class Header extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
         return(
             <div className="header">
-                <p classNane="label">Calendar</p>
-                <UserAccountSet />
+                <p className="label">YA CALENDAR</p>
+                <DropDownMenu userName="$USERNAME" />
             </div>
         )
     }
