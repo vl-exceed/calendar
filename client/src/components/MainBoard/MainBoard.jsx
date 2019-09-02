@@ -5,11 +5,11 @@ import MainPanel from '../MainPanel/MainPanel';
 class MainBoard extends React.Component {
 
     render() {
-        //const {VARIABLE} = this.props
+        const {onDay, events} = this.props
         return (
             <div className="main-board">
-                <SidePanel />
-                <MainPanel />
+                <SidePanel onDay={onDay} />
+                <MainPanel events={events}/>
             </div>
         )
     }

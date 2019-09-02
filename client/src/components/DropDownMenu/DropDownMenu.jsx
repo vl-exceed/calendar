@@ -27,8 +27,6 @@ class DropDownMenu extends React.Component {
                 </div>
                 <div className="menu-items">
                     <MenuItem name="logout" status={this.state.isOpen} />
-                    <MenuItem name="logout" status={this.state.isOpen} />
-                    <MenuItem name="logout" status={this.state.isOpen} />
                 </div>
             </div>
         )

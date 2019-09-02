@@ -1,44 +1,78 @@
 import React from 'react';
-import Day from '../Day/Day'
+import DateSelector from '../DateSelector/DateSelector'
+import DayPicker from '../DayPicker/DayPicker'
+import WeekDays from '../WeekDays/WeekDays'
 import moment from 'moment'
 
 class DatePicker extends React.Component {
     constructor(props) {
         super(props)
 
-        this.weekdayshort = moment.weekdaysShort()
-        this.firstDay = parseInt(moment().startOf("month").format("d"))
-        this.daysInMonth = moment().daysInMonth()
-        this.arrLength = (42 - this.daysInMonth) - this.firstDay
-        this.days = new Array(this.daysInMonth)
-            .fill(undefined)
-            .map((day, i) => i + 1)
-        this.beforeDays = new Array(this.firstDay)
-        this.afterDays = new Array(this.arrLength)
-        this.fields = [...this.beforeDays, ...this.days, ...this.afterDays]
+        this.state = {
+            momentObj: moment() ,
+            selectedDate: new Date()
+        }
 
-        this.getDay = this.getDay.bind(this)
+        this.weekdayshort = moment.weekdaysShort()
+        this.before = this.before.bind(this)
+        this.after = this.after.bind(this)
     }
 
-    getDay(arg) {
-        return (arg == '') ? false : console.log(arg)
+    before(e) {
+        const {data} = e.target.parentElement.parentElement.dataset
+        switch(data) {
+            case 'month': {
+                this.setState({momentObj : this.state.momentObj.subtract(1, 'month')})
+                break
+            }
+            case 'year': {
+                this.setState({momentObj : this.state.momentObj.subtract(12, 'month')})
+                break
+            }
+            default:
+                break
+        } 
+    }
+
+    after(e) {
+        const {data} = e.target.parentElement.parentElement.dataset
+        switch(data) {
+            case 'month': {
+                this.setState({momentObj : this.state.momentObj.add(1, 'month')})
+                break
+            }
+            case 'year': {
+                this.setState({momentObj : this.state.momentObj.add(12, 'month')})
+                break
+            }
+            default:
+                break
+        }
     }
 
     render() {
-        const {fields, weekdayshort} = this
+        const { onDay } = this.props
+        const { weekdayshort, before, after } = this
         return (
+ 
             <div className="date-picker">
-                <div className="week-day-names">
-                    {weekdayshort.map((day, i)=>
-                        <div className="week-day-short">{day}</div>
-                    )}
+
+                <div className="date-selectors">
+                    <DateSelector 
+                        target="month" 
+                        data={this.state.momentObj} 
+                        onDay={onDay}
+                        onPrev={before} 
+                        onNext={after}
+                        format="MMMM YYYY" />
                 </div>
-                <div className="days-block">
-                    {   
-                        fields.map((day, i) => 
-                        <Day key={i} day={day} getDay={this.getDay} />)
-                    }
-                </div>
+
+                <WeekDays data={weekdayshort} />
+
+                <DayPicker 
+                    data={this.state.momentObj} 
+                    onDay={onDay} />
+                
             </div>
         )
     }

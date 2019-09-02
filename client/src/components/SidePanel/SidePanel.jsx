@@ -4,9 +4,10 @@ import DatePicker from '../DatePicker/DatePicker'
 class SidePanel extends React.Component {
 
     render() {
+        const { onDay } = this.props
         return (
             <div className="side-panel">
-                <DatePicker />
+                <DatePicker onDay={onDay} />
             </div>
         )
     }

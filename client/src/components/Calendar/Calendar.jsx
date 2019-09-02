@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import Header from '../Header/Header'
 import MainBoard from '../MainBoard/MainBoard'
 
+import PropTypes from 'prop-types'
 // import SidePanel from '../SidePanel/SidePanel';
 // import MainPanel from '../MainPanel/MainPanel';
 
@@ -12,12 +12,19 @@ class Calendar extends Component {
         super(props)
         this.state = {
             events : [],
-            loading : false
+            loading : false,
+            currentDate : new Date()
         }
+
+        this.onDay = this.onDay.bind(this)
     }
 
     static propTypes = {
         events : PropTypes.array.isRequired
+    }
+
+    onDay(data) {
+        this.setState({selectedDate: new Date(`${data[2]}`, `${data[1] - 1}`, `${data[0]}`)})
     }
 
     componentDidMount() {
@@ -32,10 +39,11 @@ class Calendar extends Component {
     }
 
     render() {
+        const { onDay } = this
         return(
             <div className="calendar">
                 <Header />
-                <MainBoard />
+                <MainBoard onDay={onDay} events={this.state.events}/>
                 {/* <Footer /> */}
             </div>
         )
