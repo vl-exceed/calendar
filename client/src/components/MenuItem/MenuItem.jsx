@@ -1,5 +1,4 @@
 import React from 'react'
-import '../App/app.css'
 import Auth from '../../auth';
 
 class MenuItem extends React.Component{
@@ -14,9 +13,10 @@ class MenuItem extends React.Component{
     }
 
     render() {
-        const {name, status} = this.props
+        const {name, status, styles} = this.props
         return(
             <div 
+                style={styles.menuItem}
                 className={`menu-item ${(status) ? 'visible' : 'invisible'}`} 
                 onClick={this.click}
                 >{name}

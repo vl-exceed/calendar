@@ -21,75 +21,8 @@
     display: none;
 }
 
-.header {
-    height: 40px;
-    width: 100%;
+/* .week-day-names {
     display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid rgb(83, 161, 235);
-}
-
-.label {
-    font-size: 20px;
-    margin: auto 0 auto 6px; 
-}
-
-.user-block {
-    height: 40px;
-    display: flex;
-}
-
-.user-name {
-    font-size: 20px;
-    margin: auto 6px auto 0;
-}
-
-.menu-item {
-    background-color: blue;
-    height: 40px;
-    width: 150px;
-}
-
-.menu-items {
-    z-index: 1;
-    position: absolute;
-}
-
-.main-board {
-    display: flex;
-}
-
-.main-panel {
-    height: 1000px;
-    width: 1680px;
-    /* background-color: red; */
-    display: flex;
-    flex-flow: column;
-}
-
-.week-day-names {
-    display: flex;
-}
-
-.date-picker {
-    margin: 2px auto;
-    width: 280px;
-    display: flex;
-    flex-flow: column;
-    background-color: white;
-}
-
-.main-block {
-    margin: 0 auto;
-    height: 1000px;
-    width: 700px;
-    background-color: yellow;
-}
-
-.side-panel {
-    border-right: 1px solid rgb(83, 161, 235);
-    height: 1000px;
-    width: 300px;
 }
 
 .week-day-short {
@@ -170,19 +103,18 @@
 }
 
 i {
-    /* margin: auto; */
     border: solid black;
     border-width: 0 2px 2px 0;
     display: inline-block;
     padding: 3px;
-  }
-  
-  .right {
+}
+
+.right {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
-  }
-  
-  .left {
+}
+
+.left {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
-  }
+} */

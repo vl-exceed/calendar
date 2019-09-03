@@ -19,14 +19,14 @@ class DropDownMenu extends React.Component {
     }
 
     render() {
-        const {userName /*, name */} = this.props
+        const {userName, styles} = this.props
         return(
-            <div className="drop-down-menu">
-                <div className="user-block" onClick={this.openHandler}>
-                    <p className="user-name">{userName}</p>
+            <div style={styles.dropDownMenu} className="drop-down-menu">
+                <div style={styles.userBlock} className="user-block" onClick={this.openHandler}>
+                    <p style={styles.userName} className="user-name">{userName}</p>
                 </div>
-                <div className="menu-items">
-                    <MenuItem name="logout" status={this.state.isOpen} />
+                <div stle={styles.menuItems} className="menu-items">
+                    <MenuItem name="logout" styles={styles} status={this.state.isOpen} />
                 </div>
             </div>
         )

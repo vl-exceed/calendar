@@ -3,12 +3,12 @@ import React from 'react';
 class WeekDays extends React.Component {
 
     render() {
-        const {data} = this.props
+        const {data, styles} = this.props
         return (
-            <div className="week-day-names">
+            <div style={styles.weekDayNames} className="week-day-names">
                 {data.map((day, i)=>
-                    <div className="week-day-short" key={i}>
-                        <p>{day}</p>
+                    <div style={styles.weekDayShort} className="week-day-short" key={i}>
+                        <p style={styles.weekDayShortP}>{day}</p>
                     </div>
                 )}
             </div>

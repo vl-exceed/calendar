@@ -1,13 +1,20 @@
 import React from 'react';
+import DatePicker from '../DatePicker/DatePicker';
+
+import bigDatePicker from '../App/bigDatePicker-css'
 
 class MainPanel extends React.Component {
 
-
     render() {
-        //const {VARIABLE} = this.props
+        const {events, onDay, styles} = this.props
         return (
-            <div className="main-panel">
-                
+            <div 
+                style={styles.panel} 
+                className="main-panel">
+                <DatePicker 
+                    styles={bigDatePicker}
+                    onDay={onDay} 
+                    events={events}/>
             </div>
         )
     }

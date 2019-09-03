@@ -10,32 +10,42 @@ class Day extends React.Component {
 
     handleClickOnDay(e) {
         const { data } = e.target.dataset
-        // console.log(data) // с таргета приходит undefined... Какого хера?
-        if (data !== 'undefined') {
-            const currentDateString = [
-                data, 
-                this.props.data.format('MM').toString(),
-                this.props.data.format('YYYY').toString()
-            ]
-            this.props.onDay(currentDateString)
-        }
+
+        console.log(data) // с таргета приходит undefined... Какого хера?
+                          // FIXED!!!
+
+        const currentDateString = [
+            data, 
+            this.props.data.format('MM').toString(),
+            this.props.data.format('YYYY').toString()
+        ]
+        this.props.onDay(currentDateString)
+    
     }
 
     render() {
-        const { day } = this.props
+        const { day, styles } = this.props
         const { handleClickOnDay } = this
         // console.log(day) // а тут мы смотрим, что же нам все таки пришло. НЕ UNDEFINED ЛИ????!!!
         return (
             <div 
+                style={styles.day}
                 className={
                     (this.props.data.format('YYYYMM') + day.toString() === moment().format('YYYYMMD')) ? 
                         'day this-day' : 
                         'day '
                 }
-                onClick={handleClickOnDay}
                 data-data={day}
             >
-                <div className="day-round"><p>{day}</p></div>
+                <div    
+                    style={styles.dayRound}
+                    className="day-round" 
+                    data-data={day}
+                    onClick={handleClickOnDay}>
+                        <p 
+                            style={styles.dayRoundP}
+                            data-data={day}>{day}</p>
+                </div>
             </div>
         )
     }

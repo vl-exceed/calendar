@@ -13,7 +13,15 @@ class DatePicker extends React.Component {
             selectedDate: new Date()
         }
 
-        this.weekdayshort = moment.weekdaysShort()
+        this.weekdayshort = [
+            'Mon',
+            'Tue',
+            'Wed',
+            'Thu',
+            'Fri',
+            'Sat',
+            'Sun'
+        ]
         this.before = this.before.bind(this)
         this.after = this.after.bind(this)
     }
@@ -51,14 +59,15 @@ class DatePicker extends React.Component {
     }
 
     render() {
-        const { onDay } = this.props
+        const { onDay, styles } = this.props
         const { weekdayshort, before, after } = this
         return (
  
-            <div className="date-picker">
+            <div style={styles.datePicker} className="date-picker">
 
-                <div className="date-selectors">
+                <div style={styles.dateSelectors} className="date-selectors">
                     <DateSelector 
+                        styles={styles}
                         target="month" 
                         data={this.state.momentObj} 
                         onDay={onDay}
@@ -67,9 +76,12 @@ class DatePicker extends React.Component {
                         format="MMMM YYYY" />
                 </div>
 
-                <WeekDays data={weekdayshort} />
+                <WeekDays
+                    styles={styles}
+                    data={weekdayshort} />
 
                 <DayPicker 
+                    styles={styles}
                     data={this.state.momentObj} 
                     onDay={onDay} />
                 

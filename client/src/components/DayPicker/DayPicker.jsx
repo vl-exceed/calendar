@@ -11,7 +11,9 @@ class DayPicker extends React.Component {
     computeData() {
         let firstDay = parseInt(this.props.data.startOf("month").format("e"))
         if (firstDay === 0) {
-            firstDay = 7
+            firstDay = 6
+        } else {
+            firstDay -= 1
         }
         const daysInMonth = this.props.data.daysInMonth()
         const afterDaysCount = (42 - daysInMonth) - firstDay
@@ -19,7 +21,7 @@ class DayPicker extends React.Component {
 
         }
         const days = new Array(daysInMonth)
-            .fill(undefined)
+            .fill('')
             .map((day, i) => i + 1)
         const beforeDays = new Array(firstDay)
             .fill('')
@@ -30,21 +32,32 @@ class DayPicker extends React.Component {
     }
 
     render() {
-        const { data, onDay } = this.props
+        const { data, onDay, styles, component } = this.props
         const { computeData } = this
-        return (
-            <div className="day-picker">
-                {
-                    computeData().map((day, i) => 
-                        <Day 
-                            key={i} 
-                            onDay={onDay}
-                            data={data}
-                            day={day} />
-                    ) 
-                }
-            </div>
-        )
+
+        if (component) {
+            return (
+                <div style={styles.dayPicker} className="day-picker">
+
+                </div>
+            )
+        } else {
+            return (
+                <div style={styles.dayPicker} className="day-picker">
+                    {
+                        computeData().map((day, i) => 
+                            <Day 
+                                styles={styles}
+                                key={i} 
+                                onDay={onDay}
+                                data={data}
+                                day={day} />
+                        ) 
+                    }
+                </div>
+            )
+        }
+        
     }
 }
 
