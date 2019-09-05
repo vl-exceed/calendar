@@ -42,7 +42,7 @@
     flex-wrap: wrap;
     width: 280px;
 }
-
+*/
 .day {
     margin: auto;
     width: 40px;
@@ -67,7 +67,7 @@
     background-color: rgb(221, 221, 221);
     display: flex;
 }
-
+ 
 .this-day>.day-round {
     background-color: rgb(83, 161, 235);
     border-radius: 25px;
@@ -76,11 +76,11 @@
     height: 30px;
 }
 
-.day-round>p {
+/* .day-round>p {
     font-size: 14px;
     margin: auto;
-}
-
+} */
+/*
 .picker {
     height: 30px;
     background-color: white;

@@ -44,6 +44,10 @@ class Auth {
     isAuthenticated() {
       return this.authenticated;
     }
+
+    getEvents() {
+      
+    }
   }
   
   const auth = new Auth();

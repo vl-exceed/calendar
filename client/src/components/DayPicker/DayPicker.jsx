@@ -1,5 +1,5 @@
 import React from 'react';
-import Day from '../Day/Day'
+// import moment from 'moment'
 
 class DayPicker extends React.Component {
     constructor(props) {
@@ -32,31 +32,26 @@ class DayPicker extends React.Component {
     }
 
     render() {
-        const { data, onDay, styles, component } = this.props
+        const { data, onDay, styles, Component, events } = this.props
         const { computeData } = this
+        
 
-        if (component) {
-            return (
-                <div style={styles.dayPicker} className="day-picker">
 
-                </div>
-            )
-        } else {
-            return (
-                <div style={styles.dayPicker} className="day-picker">
-                    {
-                        computeData().map((day, i) => 
-                            <Day 
-                                styles={styles}
-                                key={i} 
-                                onDay={onDay}
-                                data={data}
-                                day={day} />
-                        ) 
-                    }
-                </div>
-            )
-        }
+        return (
+            <div style={styles.dayPicker} className="day-picker">
+                {
+                    computeData().map((day, i) => 
+                        <Component 
+                            styles={styles}
+                            key={i} 
+                            onDay={onDay}
+                            data={data}
+                            events={events}
+                            day={day} />
+                    ) 
+                }
+            </div>
+        )
         
     }
 }

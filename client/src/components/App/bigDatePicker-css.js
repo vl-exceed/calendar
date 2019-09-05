@@ -6,6 +6,157 @@ const datePicker = {
     backgroundColor: 'white'
 }
 
+const dayNumberBlock = {
+    display: 'flex',
+    flexFlow: 'column',
+    textSize : '8px'
+}
+
+const dayNumber = {
+    margin: '8px 0px 0px 190px'
+
+}
+
+const todos = {
+    margin: 'auto 10px'
+}
+
+const singleTab = {
+
+    green : {
+        display:'flex',
+        marginLeft: '5px',
+        borderRadius: '10px',
+        backgroundColor: 'green',
+        height: '30px',
+        width: '200px'
+    },
+    red : {
+        display:'flex',
+        marginLeft: '5px',
+        borderRadius: '10px',
+        backgroundColor: 'red',
+        height: '30px',
+        width: '200px'
+    },
+    orange : {
+        display:'flex',
+        marginLeft: '5px',
+        borderRadius: '10px',
+        backgroundColor: 'orange',
+        height: '30px',
+        width: '200px'
+    },
+    blue : {
+        display:'flex',
+        marginLeft: '5px',
+        borderRadius: '10px',
+        backgroundColor: 'blue',
+        height: '30px',
+        width: '200px'
+    }
+
+}
+
+const leftTab = {
+
+    green : {
+        display:'flex',
+        marginLeft:'10px',
+        borderTopLeftRadius: '10px',
+        borderBottomLeftRadius: '10px',
+        backgroundColor: 'green',
+        height: '30px',
+        width: '200px'
+    },
+    red : {
+        display:'flex',
+        marginLeft:'10px',
+        borderTopLeftRadius: '10px',
+        borderBottomLeftRadius: '10px',
+        backgroundColor: 'red',
+        height: '30px',
+        width: '200px'
+    },
+    orange : {
+        display:'flex',
+        marginLeft:'10px',
+        borderTopLeftRadius: '10px',
+        borderBottomLeftRadius: '10px',
+        backgroundColor: 'orange',
+        height: '30px',
+        width: '200px'
+    },
+    blue : {
+        display:'flex',
+        marginLeft:'10px',
+        borderTopLeftRadius: '10px',
+        borderBottomLeftRadius: '10px',
+        backgroundColor: 'blue',
+        height: '30px',
+        width: '200px'
+    }
+
+}
+
+const rightTab = {
+
+    green : {
+        borderTopRightRadius: '10px',
+        borderBottomRightRadius: '10px',
+        backgroundColor: 'green',
+        height: '30px',
+        width: '205px'
+    },
+    red : {
+        borderTopRightRadius: '10px',
+        borderBottomRightRadius: '10px',
+        backgroundColor: 'red',
+        height: '30px',
+        width: '205px'
+    },
+    orange : {
+        borderTopRightRadius: '10px',
+        borderBottomRightRadius: '10px',
+        backgroundColor: 'orange',
+        height: '30px',
+        width: '205px'
+    },
+    blue : {
+        borderTopRightRadius: '10px',
+        borderBottomRightRadius: '10px',
+        backgroundColor: 'blue',
+        height: '30px',
+        width: '205px'
+    }
+
+}
+
+const middleTab = {
+
+    green : {
+        backgroundColor: 'green',
+        height: '30px',
+        width: '210px'
+    },
+    red : {
+        backgroundColor: 'red',
+        height: '30px',
+        width: '210px'
+    },
+    orange : {
+        backgroundColor: 'orange',
+        height: '30px',
+        width: '210px'
+    },
+    blue : {
+        backgroundColor: 'green',
+        height: '30px',
+        width: '210px'
+    }
+
+}
+
 const weekDayNames = {
     display: 'flex'
 }
@@ -38,25 +189,6 @@ const day = {
     height: '130px',
     backgroundColor: 'white',
     display: 'flex'
-}
-
-const dayRound = {
-    margin: '10px 10px 0px 185px',
-    backgroundColor: 'white',
-    display: 'flex',
-}
-
-const thisDayRound = {
-    backgroundColor: 'rgb(83, 161, 235)',
-    borderRadius: '25px',
-    // margin: 'auto',
-    // width: '30px',
-    // height: '30px'
-}
-
-const dayRoundP = {
-    fontSize: '14px'
-    // margin: 'auto'
 }
 
 const picker = {
@@ -113,14 +245,19 @@ module.exports = {
     weekDayShortP,
     dayPicker,
     day,
-    dayRound,
-    thisDayRound,
-    dayRoundP,
     picker,
     pickerP,
     monthPicker,
     arrows,
     right,
     left,
-    dateSelectors
+    dateSelectors,
+    dayNumberBlock,
+    dayNumber,
+    // todo,
+    singleTab,
+    leftTab,
+    rightTab,
+    middleTab,
+    todos
 }

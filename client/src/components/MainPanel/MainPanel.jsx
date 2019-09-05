@@ -1,5 +1,6 @@
 import React from 'react';
 import DatePicker from '../DatePicker/DatePicker';
+import DayNew from '../DayNew/DayNew'
 
 import bigDatePicker from '../App/bigDatePicker-css'
 
@@ -14,7 +15,9 @@ class MainPanel extends React.Component {
                 <DatePicker 
                     styles={bigDatePicker}
                     onDay={onDay} 
-                    events={events}/>
+                    events={events}
+                    Component={DayNew} 
+                    />
             </div>
         )
     }

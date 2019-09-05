@@ -1,5 +1,6 @@
 import React from 'react';
 import DatePicker from '../DatePicker/DatePicker'
+import Day from '../Day/Day'
 
 import smallDatePicker from '../App/smallDatePicker-css'
 
@@ -13,7 +14,8 @@ class SidePanel extends React.Component {
                 className="side-panel">
                 <DatePicker 
                     styles={smallDatePicker}
-                    onDay={onDay} />
+                    onDay={onDay} 
+                    Component={Day}/>
             </div>
         )
     }

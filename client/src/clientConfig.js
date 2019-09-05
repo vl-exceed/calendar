@@ -6,6 +6,7 @@ const api = {
     register: 'api/register',
     login: 'api/login',
     home: 'api/client',
+    events: 'api/calendar/events',
     auth : {
         login: 'api/auth/login',
         logout: 'api/auth/logout', 
@@ -16,8 +17,7 @@ const api = {
 const routes = {
     register: '/register',
     login: '/login',
-    home: '/client',
-    calendar: '/calendar'
+    home: '/client'
 }
 
 module.exports = {

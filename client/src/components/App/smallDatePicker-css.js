@@ -39,6 +39,9 @@ const day = {
 }
 
 const dayRound = {
+    "&:hover" : {
+        backgroundColor: 'rgb(221, 221, 221)'
+    },
     margin: 'auto',
     width: '30px',
     height: '30px',

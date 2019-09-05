@@ -54,10 +54,38 @@ passport.use(new LocalStrategy({
 }
 ));
 
-app.post('/api/auth/login', passport.authenticate('local', {session:true}),
+app.post('/api/auth/login', passport.authenticate('local'),
   function (req, res, next) {
     res.status(200).send({ data: 'ok' })
   });
+
+app.get('/api/calendar/events', (req, res) => {
+  res.status(200).send({data : [
+    events = [
+      { 
+        id: 0,
+        title: 'Dream day',
+        text: 'Magic things everywhere',
+        start: '',
+        end: ''
+      },
+      {
+        id: 1,
+        title: 'Something else',
+        text: 'bla bla bla',
+        start: '',
+        end: ''
+      },
+      {
+        id: 2,
+        title: 'Super day',
+        text: 'My friend was born today',
+        start: '',
+        end: ''
+      }
+    ]
+  ]})
+})
 
 app.post('/api/register', user.createUser)
 
