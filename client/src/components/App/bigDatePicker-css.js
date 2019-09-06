@@ -1,3 +1,37 @@
+
+const blueColor = 'rgb(83, 161, 235)'
+
+const todoha = {
+    height: '50px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    but: {
+        height: '30px',
+        width: '40px',
+        borderRadius: '4px',
+        marginTop: '10px',
+        marginRight: '10px'
+    },
+    info: {
+        display: 'flex',
+        flexFlow: 'column'
+    },
+    todosConstainer: {
+        width: '400px',
+        backgroundColor: 'white',
+        margin: '0 auto',
+        borderRadius: '4px'
+
+    },
+    plus: {
+        height: '30px',
+        width: '40px',
+        borderRadius: '4px'
+
+    }
+
+}
+
 const datePicker = {
     margin: '2px auto',
     width: '1500px',
@@ -10,6 +44,46 @@ const dayNumberBlock = {
     display: 'flex',
     flexFlow: 'column',
     textSize : '8px'
+}
+
+const modalHead = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    padding: '10px'
+}
+
+const but = {
+    // marginLeft: '440px',
+    // marginTop : '10px',
+    height: '25px',
+    width: '50px',
+    borderRadius: '3px'
+}
+
+const triangle = {
+    border: '20px solid transparent',
+    borderRight: '20px solid green',
+    margin: '43px 0px 0px 10px'
+}
+
+const modal = {
+    open: {
+        flexFlow: 'column',
+        display: 'flex',
+        // marginLeft: '-212px',
+        // margin: 'auto',
+        // marginTop: '-1px',
+        position: 'absolute',
+        zIndex: '4',
+        // height: '600px',
+        paddingBottom: '40px',
+        width: '500px',
+        backgroundColor: blueColor,
+        borderRadius: '3px'
+    },
+    close: {
+        display: 'none'
+    }
 }
 
 const dayNumber = {
@@ -166,7 +240,7 @@ const weekDayShort = {
     fontSize: '14px',
     width: '212px',
     height: '30px',
-    backgroundColor: 'rgb(83, 161, 235)',
+    backgroundColor: blueColor,
     borderRadius: '3px',
     display: 'flex'
 }
@@ -254,10 +328,14 @@ module.exports = {
     dateSelectors,
     dayNumberBlock,
     dayNumber,
-    // todo,
+    triangle,
     singleTab,
     leftTab,
     rightTab,
     middleTab,
-    todos
+    todos,
+    modal,
+    but,
+    modalHead,
+    todoha
 }

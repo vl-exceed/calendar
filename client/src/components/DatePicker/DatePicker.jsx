@@ -59,7 +59,7 @@ class DatePicker extends React.Component {
     }
 
     render() {
-        const { onDay, styles, Component, events } = this.props
+        const { onDay, styles, Component, events, deleteEv, updateEv, addEv } = this.props
         const { weekdayshort, before, after } = this
         return (
  
@@ -81,6 +81,9 @@ class DatePicker extends React.Component {
                     data={weekdayshort} />
 
                 <DayPicker 
+                    deleteEv={deleteEv}
+                    addEv={addEv}
+                    updateEv={updateEv}
                     styles={styles}
                     data={this.state.momentObj} 
                     onDay={onDay} 

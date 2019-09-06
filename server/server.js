@@ -31,7 +31,6 @@ passport.deserializeUser((id, done) => {
   });
 });
 
-
 app.use(session({ secret: 'SECRET' }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -59,33 +58,33 @@ app.post('/api/auth/login', passport.authenticate('local'),
     res.status(200).send({ data: 'ok' })
   });
 
-app.get('/api/calendar/events', (req, res) => {
-  res.status(200).send({data : [
-    events = [
-      { 
-        id: 0,
-        title: 'Dream day',
-        text: 'Magic things everywhere',
-        start: '',
-        end: ''
-      },
-      {
-        id: 1,
-        title: 'Something else',
-        text: 'bla bla bla',
-        start: '',
-        end: ''
-      },
-      {
-        id: 2,
-        title: 'Super day',
-        text: 'My friend was born today',
-        start: '',
-        end: ''
-      }
-    ]
-  ]})
-})
+// app.get('/api/calendar/events', (req, res) => {
+//   res.status(200).send({data : [
+//     events = [
+//       { 
+//         id: 0,
+//         title: 'Dream day',
+//         text: 'Magic things everywhere',
+//         start: '',
+//         end: ''
+//       },
+//       {
+//         id: 1,
+//         title: 'Something else',
+//         text: 'bla bla bla',
+//         start: '',
+//         end: ''
+//       },
+//       {
+//         id: 2,
+//         title: 'Super day',
+//         text: 'My friend was born today',
+//         start: '',
+//         end: ''
+//       }
+//     ]
+//   ]})
+// })
 
 app.post('/api/register', user.createUser)
 

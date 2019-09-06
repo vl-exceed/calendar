@@ -5,7 +5,16 @@ class DayPicker extends React.Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            modalIsOpen: false
+        }
+
         this.computeData = this.computeData.bind(this)
+        this.modal = this.modal.bind(this)
+    }
+
+    modal() {
+        this.setState({modalIsOpen: !this.state.modalIsOpen})
     }
 
     computeData() {
@@ -32,16 +41,19 @@ class DayPicker extends React.Component {
     }
 
     render() {
-        const { data, onDay, styles, Component, events } = this.props
-        const { computeData } = this
-        
-
+        const { data, onDay, styles, Component, events, deleteEv, updateEv, addEv } = this.props
+        const { computeData, modal } = this
 
         return (
             <div style={styles.dayPicker} className="day-picker">
                 {
                     computeData().map((day, i) => 
                         <Component 
+                            deleteEv={deleteEv}
+                            addEv={addEv}
+                            updateEv={updateEv}
+                            modalIsOpen={this.state.modalIsOpen}
+                            modal={modal} 
                             styles={styles}
                             key={i} 
                             onDay={onDay}

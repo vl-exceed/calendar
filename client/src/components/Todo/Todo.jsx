@@ -36,7 +36,7 @@ class Todo extends React.Component {
                 } 
                 className="todo">
                     <p style={styles.todos}>
-                        {(event.place != 'middle' && event.place != 'right') ? event.title : ''}
+                        {(event.place !== 'middle' && event.place !== 'right') ? event.title : ''}
                     </p>
             </div>
         )

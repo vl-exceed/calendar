@@ -15,9 +15,10 @@ const api = {
 }
 
 const routes = {
+    calendar: '/calendar',
     register: '/register',
     login: '/login',
-    home: '/client'
+    home: '/home'
 }
 
 module.exports = {

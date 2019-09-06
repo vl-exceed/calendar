@@ -1,6 +1,9 @@
 import User from '../../models/userModel';
 
 class UserController {
+    findOne(...args) {
+        return User.findOne(...args)
+    }
 
     createUser(req, res) {
         const data = req.body

@@ -9,11 +9,17 @@ import mainBoard from '../App/mainBoard-css'
 class MainBoard extends React.Component {
 
     render() {
-        const {onDay, events} = this.props
+        const {onDay, events, deleteEv, addEv, updateEv} = this.props
         return (
             <div style={mainBoard.mainBoard} className="main-board">
                 <SidePanel onDay={onDay} styles={sidePanel} />
-                <MainPanel onDay={onDay} styles={mainPanel} events={events}/>
+                <MainPanel 
+                    deleteEv={deleteEv}
+                    addEv={addEv}
+                    updateEv={updateEv}
+                    onDay={onDay} 
+                    styles={mainPanel} 
+                    events={events}/>
             </div>
         )
     }

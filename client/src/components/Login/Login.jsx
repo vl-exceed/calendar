@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Auth from '../../auth'
-// import { routes } from '../../clientConfig'
+import { routes } from '../../clientConfig'
 
 class Login extends Component {
     constructor(props) {
@@ -15,8 +15,10 @@ class Login extends Component {
         // Auth.login(() => {this.props.history.push(`${routes.calendar}`)})
         Auth.login(_login.value, _password.value)
             .then(data => {
-                console.log(data)
-                // this.props.history.push(`${routes.calendar}`)
+                if (data.data === 'ok') {
+                   Auth.log()
+                    this.props.history.push(`${routes.calendar}`) 
+                }
             })  
             .catch(error => console.log(error))
     }

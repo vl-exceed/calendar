@@ -2,7 +2,7 @@ import config from './clientConfig'
 
 class Auth {
     constructor() {
-      this.authenticated = true;
+      this.authenticated = true; //sfdafsdfasf
     }
   
     register(email, login, password) {
@@ -18,7 +18,7 @@ class Auth {
               password: password
           })
       })
-          .then(response => response.json())
+        .then(response => response.json())
     }
 
     login(login, password) {
@@ -43,6 +43,10 @@ class Auth {
   
     isAuthenticated() {
       return this.authenticated;
+    }
+
+    log() {
+      this.authenticated = true
     }
 
     getEvents() {

@@ -42,6 +42,15 @@ class Calendar extends Component {
                     end: new Date(2019, 8, 17, 16, 0),
                     color: 'green'
                 }
+                ,
+                {
+                    id: 4,
+                    title: 'ololo',
+                    text: 'My friends were born this days',
+                    start: new Date(2019, 9, 28, 15, 0),
+                    end: new Date(2019, 9, 29, 16, 0),
+                    color: 'green'
+                }
             ],
             // loading : false,
             selectedDate : {}
@@ -50,7 +59,7 @@ class Calendar extends Component {
         this.onDay = this.onDay.bind(this)
         this.deleteEv = this.deleteEv.bind(this)
         this.addEv = this.addEv.bind(this)
-        // this.updateEv = this.updateEv.bind(this)
+        this.updateEv = this.updateEv.bind(this)
     }
 
     static propTypes = {
@@ -62,15 +71,18 @@ class Calendar extends Component {
     }
 
     deleteEv(id) {
-        const events = this.state.events.reduce(() => {
-
-        })
+        const events = this.state.events.reduce((evS, ev) => {
+            if (ev.id !== id) {
+                evS.push(ev)
+            }
+            return evS
+        }, [])
         this.setState({events: events})
     }
 
     addEv(title, text, start, end, color) {
         const events = [
-            ...events,
+            ...this.state.events,
             {
                 id: uniqid(),
                 title: title,
@@ -83,9 +95,9 @@ class Calendar extends Component {
         this.setState({events: events})
     }
 
-    // updateEv(id, data) {
-    //     this.setState({events: events})
-    // }
+    updateEv(id, data) {
+        // this.setState({events: events})
+    }
 
     // componentDidUpdate() {
         // this.setState({ loading: true })
@@ -100,10 +112,14 @@ class Calendar extends Component {
 
     render() {
         const { onDay, onDayNew } = this
+        const { deleteEv, addEv, updateEv } = this
         return(
             <div className="calendar">
                 <Header />
                 <MainBoard 
+                    deleteEv={deleteEv}
+                    addEv={addEv}
+                    updateEv={updateEv}
                     onDayNew={onDayNew}
                     onDay={onDay}
                     events={this.state.events} />

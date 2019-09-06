@@ -1,23 +1,24 @@
 import React from 'react';
 import moment from 'moment'
 import Todo from '../Todo/Todo'
+import DayModal from '../DayModal/DayModal'
 
 class DayNew extends React.Component {
 
     constructor(props) {
         super(props)
 
-        this.handleClickOnDay = this.handleClickOnDay.bind(this)
+        this.state = {
+            isOpen: false
+        }
         this.eventArray = this.eventArray.bind(this)
+        this.handleModal = this.handleModal.bind(this)
+        this.closeModal = this.closeModal.bind(this)
         
     }
 
-    handleClickOnDay(day) {
-        // console.log(day)
-    }
-
     eventArray() {
-        const now = moment().format('YYYYMM') + this.props.day
+        const now = moment(this.props.data).format('YYYYMM') + this.props.day
 
         return this.props.events.reduce((mas, event) => {
             if ((moment(event.start).format('YYYYMMD') === now) && (moment(event.end).format('YYYYMMD') === now)) {
@@ -40,20 +41,45 @@ class DayNew extends React.Component {
           }, []);
     }
 
+    handleModal() {
+        if (!this.props.modalIsOpen) {
+            this.props.modal()
+            this.setState({isOpen : !this.state.isOpen})
+        }
+    }
+
+    closeModal() {
+        this.props.modal()
+        this.setState({isOpen : false})
+    }
+
     render() {
-        const { day, styles } = this.props
-        const { handleClickOnDay, eventArray } = this
+        const { day, styles, deleteEv,addEv,updateEv } = this.props
+        const { eventArray, handleModal, closeModal, data } = this
         return (
             <div 
                 style={styles.day} 
                 className="day-new" 
-                onClick={() => handleClickOnDay(day)}>
+                onClick={(day) ? handleModal : () => {}}>
                 <div style={styles.dayNumberBlock}  className="day-number-block">
+                <DayModal 
+                    deleteEv={deleteEv}
+                    addEv={addEv}
+                    updateEv={updateEv}
+                    events={eventArray()} 
+                    close={closeModal} 
+                    data={data} day={day} 
+                    state={this.state.isOpen} 
+                    open={handleModal} 
+                    styles={styles}/>
+
                     <p style={styles.dayNumber} className="day-number">{day}</p>
                     <div className="todos">
                         {   
-                            eventArray().map((event, i) =>
-                                <Todo event={event} styles={styles} key={i} />
+                            eventArray().map((event, i) => 
+                                <div key={i}>
+                                    <Todo event={event} styles={styles} />
+                                </div>
                             )
                         }
                     </div>
